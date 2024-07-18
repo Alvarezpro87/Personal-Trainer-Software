@@ -34,6 +34,11 @@ public class FichaDeTreinoController {
         return ResponseEntity.ok(fichaDeTreino);
     }
 
+    @GetMapping("/cpf/{cpf}")
+    public List<FichaDeTreino> getFichasDeTreinoByCpf(@PathVariable String cpf) {
+        return fichaDeTreinoService.getFichasDeTreinoByCpf(cpf);
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<FichaDeTreino> updateFichaDeTreino(@PathVariable Long id, @RequestBody FichaDeTreino fichaDeTreinoDetails) {
         FichaDeTreino updatedFichaDeTreino = fichaDeTreinoService.updateFichaDeTreino(id, fichaDeTreinoDetails);

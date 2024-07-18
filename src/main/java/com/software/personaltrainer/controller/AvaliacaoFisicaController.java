@@ -35,12 +35,8 @@ public class AvaliacaoFisicaController {
     }
 
     @GetMapping("/cpf/{cpf}")
-    public ResponseEntity<List<AvaliacaoFisica>> getAvaliacoesFisicasByCpf(@PathVariable String cpf) {
-        List<AvaliacaoFisica> avaliacoesFisicas = avaliacaoFisicaService.getAvaliacoesFisicasByCpf(cpf);
-        if (avaliacoesFisicas == null) {
-            return ResponseEntity.notFound().build();
-        }
-        return ResponseEntity.ok(avaliacoesFisicas);
+    public List<AvaliacaoFisica> getAvaliacoesFisicasByCpf(@PathVariable String cpf) {
+        return avaliacaoFisicaService.getAvaliacoesFisicasByCpf(cpf);
     }
 
     @PutMapping("/{id}")
